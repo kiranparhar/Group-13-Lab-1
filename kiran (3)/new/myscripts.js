@@ -7,46 +7,76 @@ document.getElementById("numError").innerHTML = "";
 document.getElementById("mailError").innerHTML = "";
 document.getElementById("provError").innerHTML = "";
 document.getElementById("cityError").innerHTML = "";
-document.getElementById("zipError").style.display = "";
-document.getElementById("dobError").style.display = "";
-document.getElementById("passError").style.display = "";
+//mashood part
 
+document.getElementById("codeerror").innerHTML = "";
+document.getElementById("doberror").innerHTML = "";
+document.getElementById("studyerror").innerHTML = "";
+document.getElementById("opterror").innerHTML = "";
+document.getElementById("mobilityerror").innerHTML = "";
+document.getElementById("texterror").innerHTML = "";
+
+      //end
 
 document.getElementById("nameError").style.display = "none";
 document.getElementById("numError").style.display = "none";
 document.getElementById("mailError").style.display = "none";
 document.getElementById("provError").style.display = "none";
 document.getElementById("cityError").style.display = "none";
-document.getElementById("zipError").style.display = "none";
-document.getElementById("dobError").style.display = "none";
-document.getElementById("passError").style.display = "none";
+//mashhood part
+document.getElementById("codeerror").style.display = "none";
+document.getElementById("doberror").style.display = "none";
+document.getElementById("studyerror").style.display = "none";
+document.getElementById("opterror").style.display = "none";
+document.getElementById("mobilityerror").style.display = "none";
+document.getElementById("texterror").style.display = "none";
+//end
 
-
-var name, num, email, city, prov, numberLength ;
+var name, num, email, city, prov, code,nameday, education, gender, disablity, text, numberLength;
 var errorText = "This is a required field. Please make sure you enter your relevant details.";
 var count = 0;
     
   name = document.getElementById("name").value;
   num = document.getElementById("number").value;
   email = document.getElementById("email").value;
-  password = document.getElementById("password").value;
   city = document.getElementById("city").value;
   prov = document.getElementById("province").value;
   numberLength = document.getElementById("number").value.length;
-
-
+  //mashhood part
+  code = document.getElementById('zipcode').value;
+  nameday = document.getElementById('bday').value;
+  education = document.getElementById('study').value;
+  gender = document.getElementById('gen').value;
+  disablity = document.getElementById('defect').value;
+  text = document.getElementById('mytext').value;
+      // let validForm=true;
+      //end
 
  var PROVS = {
     EC : {value: 0, name: "Ontario"}, 
     FS: {value: 1, name: "Manitoba"},
-    GT : {value: 2, name: "Alberta"},
-    KZN : {value: 3, name: "Nova scotia"},
-    LM : {value: 4, name: "Nuvat"},
-    MP : {value: 5, name: "yukon"},
-    NC : {value: 6, name: "Prince Edward"},
-    NW : {value: 7, name: "British columbia"},
+    GT : {value: 2, name: "Yukon"},
+    KZN : {value: 3, name: "Nuvat"},
+    LM : {value: 4, name: "Alberta"},
+    MP : {value: 5, name: "British Columbia"},
+    NC : {value: 6, name: "Nova Scotia"},
+    NW : {value: 7, name: "Prince Edward "},
     WC : {value: 8, name: "Quebec"},
 }
+
+//mashhood
+let EDUCATIONS = {
+    CD : {value: 0, name: "School/college"}, 
+    FR: {value: 1, name: "Post graduation or equavalent"},
+
+}
+
+let DISABILITIES = {
+    SE : {value: 0, name: "Yes"}, 
+    CR: {value: 1, name: "NO"},
+
+}
+//end
  
 //Validation and Assign errors
 
@@ -97,37 +127,58 @@ var count = 0;
            count++;
       }
 
-      if (name == ""){
-          document.getElementById("zipError").innerHTML = errorText;
-          document.getElementById("zipError").style.display = "block";
-          count++;
-     }
-     if ( name== ""){
-          document.getElementById("dobError").innerHTML = errorText;
-          document.getElementById("dobError").style.display = "block";
-          count++;
-     }
+      //mashhood part------------------
+       if (code == ""){
+           document.getElementById("codeerror").innerHTML = errorText;
+           document.getElementById("codeerror").style.display = "block";
+           count++;
+      }
+      
+      if (nameday == ""){
+           document.getElementById("doberror").innerHTML = errorText;
+           document.getElementById("doberror").style.display = "block";
+           count++;
+      }
+    
+    if (education == ""){
+           document.getElementById("studyerror").innerHTML = errorText;
+           document.getElementById("studyerror").style.display = "block";
+           count++;
+      }
 
-     if ( name== ""){
-          document.getElementById("passError").innerHTML = errorText;
-          document.getElementById("passError").style.display = "block";
-          count++;
-     }
+      else if (education != EDUCATIONS.CD.name && education != EDUCATIONS.FR.name)//check that prov == 1 of the nine provinces
+      {
+            document.getElementById("studyerror").innerHTML = "Please select your qualification";
+            document.getElementById("studyerror").style.display = "block";
+            count++;
+      }
+    
+      if (gender == ""){
+           document.getElementById("opterror").innerHTML = errorText;
+           document.getElementById("opterror").style.display = "block";
+           count++;
+      }
 
-        //Validate zip code (basic)
-    if ($("#zip").val()) {
-     let zip = $("#zip").val();
-     let patt = /[^0-9]/g;
-     
-     let testZip = patt.exec(zip);
-     if(testZip) {
-       errors.push("zip");
-     }
-     else if (zip.length != 5) {
-       errors.push("zip");
-     }
-   }
-   
+      if (disablity == ""){
+           document.getElementById("mobilityerror").innerHTML = errorText;
+           document.getElementById("mobilityerror").style.display = "block";
+           count++;
+      }
+       else if (disablity != DISABILITIES.SE.name && disablity != DISABILITIES.CR.name)//check that prov == 1 of the nine provinces
+      {
+            document.getElementById("mobilityerror").innerHTML = "Please select a any option to proceed";
+            document.getElementById("mobilityerror").style.display = "block";
+            count++;
+      }
+
+      if (text == ""){
+           document.getElementById("texterror").innerHTML = errorText;
+           document.getElementById("texterror").style.display = "block";
+           count++;
+      }
+    
+      //end
+
 
    if (count > 0)
    {
@@ -146,6 +197,7 @@ function lengthFunc(){
 }
 
 
+  //TO TOP BUTTON-->
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -164,3 +216,55 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 
+
+
+
+/*
+function validateFunction(){
+
+      let code = document.getElementById('zipcode').value;
+      var nameday = document.getElementById('bday').value;
+      let education = document.getElementById('study').value;
+      var gender = document.getElementById('gen').value;
+      let disablity = document.getElementById('defect').value;
+      var text = document.getElementById('msg').value;
+      let validForm=true;
+
+      if(code=="")
+      {
+        document.getElementById('codeerror').innerHTML="please fill the username field";
+        validForm = false;
+      }
+
+      if(nameday=="")
+      {
+        document.getElementById('doberror').innerHTML="please fill the password field";
+        validForm = false;
+      }
+
+
+      if(education =="")
+      {
+        document.getElementById('studyerror').innerHTML="please fill the confirmpassword field";
+        validForm = false;
+      }
+      if(gender=="")
+      {
+        document.getElementById('opterror').innerHTML="please fill the mobilenumber field";
+        validForm = false;
+      }
+
+      if(disablity=="")
+      {
+        document.getElementById('mobilityerror').innerHTML="please fill the email address field";
+        validForm = false;
+      }
+
+      if(text=="")
+      {
+        document.getElementById('texterror').innerHTML="please fill the email address field";
+        validForm = false;
+      }
+
+      return validForm;
+    }*/
