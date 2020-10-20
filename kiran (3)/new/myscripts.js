@@ -7,7 +7,7 @@ document.getElementById("numError").innerHTML = "";
 document.getElementById("mailError").innerHTML = "";
 document.getElementById("provError").innerHTML = "";
 document.getElementById("cityError").innerHTML = "";
-//mashood part
+//
 
 document.getElementById("codeerror").innerHTML = "";
 document.getElementById("doberror").innerHTML = "";
@@ -16,21 +16,21 @@ document.getElementById("opterror").innerHTML = "";
 document.getElementById("mobilityerror").innerHTML = "";
 document.getElementById("texterror").innerHTML = "";
 
-      //end
+      //
 
 document.getElementById("nameError").style.display = "none";
 document.getElementById("numError").style.display = "none";
 document.getElementById("mailError").style.display = "none";
 document.getElementById("provError").style.display = "none";
 document.getElementById("cityError").style.display = "none";
-//mashhood part
+//
 document.getElementById("codeerror").style.display = "none";
 document.getElementById("doberror").style.display = "none";
 document.getElementById("studyerror").style.display = "none";
 document.getElementById("opterror").style.display = "none";
 document.getElementById("mobilityerror").style.display = "none";
 document.getElementById("texterror").style.display = "none";
-//end
+//
 
 var name, num, email, city, prov, code,nameday, education, gender, disablity, text, numberLength;
 var errorText = "This is a required field. Please make sure you enter your relevant details.";
@@ -42,7 +42,7 @@ var count = 0;
   city = document.getElementById("city").value;
   prov = document.getElementById("province").value;
   numberLength = document.getElementById("number").value.length;
-  //mashhood part
+  //
   code = document.getElementById('zipcode').value;
   nameday = document.getElementById('bday').value;
   education = document.getElementById('study').value;
@@ -50,7 +50,7 @@ var count = 0;
   disablity = document.getElementById('defect').value;
   text = document.getElementById('mytext').value;
       // let validForm=true;
-      //end
+    
 
  var PROVS = {
     EC : {value: 0, name: "Ontario"}, 
@@ -64,7 +64,7 @@ var count = 0;
     WC : {value: 8, name: "Quebec"},
 }
 
-//mashhood
+
 let EDUCATIONS = {
     CD : {value: 0, name: "School/college"}, 
     FR: {value: 1, name: "Post graduation or equavalent"},
@@ -76,7 +76,7 @@ let DISABILITIES = {
     CR: {value: 1, name: "NO"},
 
 }
-//end
+
  
 //Validation and Assign errors
 
@@ -127,7 +127,7 @@ let DISABILITIES = {
            count++;
       }
 
-      //mashhood part------------------
+      //------------------
        if (code == ""){
            document.getElementById("codeerror").innerHTML = errorText;
            document.getElementById("codeerror").style.display = "block";
@@ -220,51 +220,3 @@ function topFunction() {
 
 
 /*
-function validateFunction(){
-
-      let code = document.getElementById('zipcode').value;
-      var nameday = document.getElementById('bday').value;
-      let education = document.getElementById('study').value;
-      var gender = document.getElementById('gen').value;
-      let disablity = document.getElementById('defect').value;
-      var text = document.getElementById('msg').value;
-      let validForm=true;
-
-      if(code=="")
-      {
-        document.getElementById('codeerror').innerHTML="please fill the username field";
-        validForm = false;
-      }
-
-      if(nameday=="")
-      {
-        document.getElementById('doberror').innerHTML="please fill the password field";
-        validForm = false;
-      }
-
-
-      if(education =="")
-      {
-        document.getElementById('studyerror').innerHTML="please fill the confirmpassword field";
-        validForm = false;
-      }
-      if(gender=="")
-      {
-        document.getElementById('opterror').innerHTML="please fill the mobilenumber field";
-        validForm = false;
-      }
-
-      if(disablity=="")
-      {
-        document.getElementById('mobilityerror').innerHTML="please fill the email address field";
-        validForm = false;
-      }
-
-      if(text=="")
-      {
-        document.getElementById('texterror').innerHTML="please fill the email address field";
-        validForm = false;
-      }
-
-      return validForm;
-    }*/
